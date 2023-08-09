@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       {path: '', component: FirstPageComponent},
       {path: 'houses/:id', component: HouseDetailsComponent}

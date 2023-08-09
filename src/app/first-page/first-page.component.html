@@ -10,7 +10,22 @@
                 <h1>Houses for Sale</h1>
                 </div>
             </div>
-            
+
+            <div class="row">
+              <div class="col-md-12">
+                <h1>Search Houses </h1>
+              </div>
+            </div>
+
+            <div>
+              <input type="text" name="searchText" [(ngModel)]="searchText" placeholder="search houses here" #filter>
+              <button type="button" (click)="filterResults(filter.value)"> Search </button>
+              <div *ngFor="let house of filteredLocationList"> <ul>
+                <a [routerLink]="['/houses', house.id]" routerLinkActive="router-link-active"> {{house.name}} </a>
+              </ul></div>
+              
+            </div>
+    
             <div class="row">
                 <nav>
                   <h6>
@@ -60,4 +75,5 @@
             </div> <!--  Endrow -->
         </div> <!-- End container -->
     </div>
+
     <p style="text-align: center;">&copy; Copyright Real Estate Service</p>

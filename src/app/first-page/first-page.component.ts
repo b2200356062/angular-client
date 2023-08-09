@@ -4,6 +4,7 @@ import { House } from '../house';
 import { HouseDetailsComponent } from '../house-details/house-details.component';
 import { HouseService } from '../house.service';
 
+
 @Component({
   selector: 'app-first-page',
   templateUrl: './first-page.component.html',
@@ -12,13 +13,25 @@ import { HouseService } from '../house.service';
 export class FirstPageComponent {
   public houses: House[];
   title: "Real Estate";
+  searchText: any;
+  filteredLocationList: House[] = [];
+  house: House;
+  constructor(private houseService: HouseService) {
+  }
 
-  constructor(private houseService: HouseService) {}
-  
   ngOnInit(): void {
     this.getHouses();
   }
 
+  filterResults(text: string) {
+    if (!text) {
+      this.filteredLocationList = this.houses;
+    }
+  
+    this.filteredLocationList = this.houses.filter(
+      houses => houses?.name.toLowerCase().includes(text.toLowerCase())
+    );
+  }
   getHouses(): void {
     this.houseService.getHouses().subscribe(
       (response: House[]) => {
@@ -29,7 +42,6 @@ export class FirstPageComponent {
       }
     );
   }
-
 
 
 
