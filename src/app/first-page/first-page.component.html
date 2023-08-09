@@ -1,0 +1,63 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+    <div class="container-fluid" style="background-color:#e8e8e8">
+        <div  class="container container-pad" id="property-listings">
+            <div class="row">
+              <div class="col-md-12">
+                <h1>Houses for Sale</h1>
+                </div>
+            </div>
+            
+            <div class="row">
+                <nav>
+                  <h6>
+                    <a [routerLink]="['/dashboard']" routerLinkActive="router-link-active" ariaCurrentWhenActive="page"> Login </a>
+                  </h6>
+                </nav>
+                <div class="col-sm-8" *ngFor= "let house of houses">
+                  <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+                      <div class="media">
+                          <nav>
+                              <a [routerLink]="['/houses', house.id]" routerLinkActive="router-link-active"> {{house.name}} </a>
+                            </nav>
+
+                              <img alt="image" class="img-responsive" [src]= "house.imagePath" width="500" height="500">
+                              
+                            <div class="clearfix visible-sm"></div>
+
+                            <div class="media-body fnt-smaller">
+                                <a href="#" target="_parent"></a>
+
+                                <h4 class="media-heading">
+                                  
+                                  <a href="https://www.google.com/maps/place/Alanya,+Antalya/@36.5456452,32.0056871,14.5z/data=!4m6!3m5!1s0x14dca27b822cd5fb:0xd160c1c8b3dc170b!8m2!3d36.544443!4d31.995408!16zL20vMDNybnJ6" target="_parent"><small class="pull-right">{{house.location}}</small></a></h4>
+                                  <div class="price"> 
+                                    <a href="#house-details"> <strong>${{house.price}}</strong> 
+                                    <br></a>
+                                  </div>
+
+                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                    
+                                    <li> {{house.metrekare}} m^2</li>
+
+                                    <li style="list-style: none">|</li>
+
+                                    <li>{{house.yatak_sayisi}} Yatak</li>
+
+                                    <li style="list-style: none">|</li>
+
+                                    <li>{{ house.banyo_sayisi }} Banyo</li>
+                                   
+                                </ul>
+                                <p class="hidden-xs">{{house.description}}</p>
+                            </div>
+                        </div>
+                    </div> <!-- End Listing-->
+                </div> <!-- End Col -->
+            </div> <!--  Endrow -->
+        </div> <!-- End container -->
+    </div>
+    <p style="text-align: center;">&copy; Copyright Real Estate Service</p>

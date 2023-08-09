@@ -1,0 +1,14 @@
+runtime: nodejs16
+
+instance_class: F2
+
+env_variables: 
+  BUCKET_NAME: "zabup"
+
+handlers:
+- url: /
+  static_files: dist/client/index.html
+  upload: dist/client/index.html
+
+- url: /
+  static_dir: dist/client
