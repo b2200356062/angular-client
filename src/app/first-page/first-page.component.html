@@ -11,19 +11,16 @@
                 </div>
             </div>
 
-            <div class="row">
-              <div class="col-md-12">
-                <h1>Search Houses </h1>
-              </div>
-            </div>
-
             <div>
               <input type="text" name="searchText" [(ngModel)]="searchText" placeholder="search houses here" #filter>
               <button type="button" (click)="filterResults(filter.value)"> Search </button>
-              <div *ngFor="let house of filteredLocationList"> <ul>
-                <a [routerLink]="['/houses', house.id]" routerLinkActive="router-link-active"> {{house.name}} </a>
-              </ul></div>
               
+              <div *ngFor="let house of filteredHouses">
+                <ol>
+                    <!-- ROUTING!! ÖNEMLİ --> 
+                    <a [routerLink]="['/houses', house.id]" routerLinkActive="router-link-active"> {{house.name}} </a> 
+                </ol>
+              </div>
             </div>
     
             <div class="row">

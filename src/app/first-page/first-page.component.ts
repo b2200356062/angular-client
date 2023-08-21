@@ -14,7 +14,7 @@ export class FirstPageComponent {
   public houses: House[];
   title: "Real Estate";
   searchText: any;
-  filteredLocationList: House[] = [];
+  filteredHouses: House[] = [];
   house: House;
   constructor(private houseService: HouseService) {
   }
@@ -25,10 +25,10 @@ export class FirstPageComponent {
 
   filterResults(text: string) {
     if (!text) {
-      this.filteredLocationList = this.houses;
+      this.filteredHouses = this.houses;
     }
   
-    this.filteredLocationList = this.houses.filter(
+    this.filteredHouses = this.houses.filter(
       houses => houses?.name.toLowerCase().includes(text.toLowerCase())
     );
   }
