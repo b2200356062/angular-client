@@ -8,4 +8,5 @@ export interface House{
     banyo_sayisi: number;
     description: string;
     imagePath: string;
+    manzara: string;
 }
